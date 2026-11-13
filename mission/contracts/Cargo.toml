@@ -1,0 +1,29 @@
+[package]
+name = "aero-mission-escrow"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# `legacy` keeps `near_sdk::collections::LookupMap` and the `near_sdk::borsh`
+# re-export that the derives below rely on. Borsh is also a direct dependency so
+# the derive macros can resolve `::borsh`.
+near-sdk = { version = "5.7", features = ["legacy"] }
+borsh = "1"
+
+# NOTE: no `unit-testing` / `non-contract-usage` features here. Those belong
+# under [dev-dependencies] only; leaving them in [dependencies] would leak their
+# cfg into the release wasm. This contract is built for wasm32 with `--cfg near`
+# (see the build script in package.json), so the host-function path is selected.
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+# The panic message is the demo. near-sdk's `require!` calls the `panic_utf8`
+# host function directly, so it surfaces cleanly as
+#   Smart contract panicked: RECIPIENT_NOT_APPROVED: attacker.testnet
+# as long as the contract is built with `--cfg near` (host functions active).
+strip = true

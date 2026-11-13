@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Private Code Review — NEAR-verified TEE</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Private Code Review</h1>
+    <p class="sub">Paste a private diff. Get a review from a NEAR-verified TEE model — with a receipt proving which model ran.</p>
+
+    <section class="panel">
+      <div class="head">
+        <label for="diff">Diff (or private code)</label>
+        <span class="engine" id="engine">engine: —</span>
+      </div>
+      <textarea id="diff" rows="10" placeholder="@@ -1,1 +1,1 @@&#10;-x = input()&#10;+x = eval(input())"></textarea>
+      <button type="button" id="run">Review privately</button>
+
+      <div id="result" class="result" hidden>
+        <div class="badge" id="badge"></div>
+        <a class="receipt" id="receipt" target="_blank" rel="noopener" hidden>Open Verification Center receipt ↗</a>
+        <pre id="text"></pre>
+      </div>
+    </section>
+
+    <p class="foot">
+      Three honest tiers: <strong>✓ verified</strong> (provider_tee) · <strong>⚠ partially verified</strong> (gateway) · <strong>✗ unverified</strong> (local fallback).
+      A response without a signature is not "verified."
+    </p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

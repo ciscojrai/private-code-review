@@ -1,0 +1,21 @@
+{
+  "name": "private-code-review",
+  "version": "0.1.0",
+  "description": "Private code review on NEAR AI Cloud: paste a diff, get a review from a verified TEE model with a Verification Center receipt.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=24.22.1" },
+  "scripts": {
+    "start": "node server.mjs",
+    "build:contract": "cd mission/contracts && RUSTFLAGS=\"--cfg near\" cargo build --release --target wasm32-unknown-unknown",
+    "test:contract": "jest --config mission/jest.config.cjs"
+  },
+  "dependencies": {
+    "@nearai/inference-sdk": "^0.3.0",
+    "openai": "^6.49.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.0",
+    "near-workspaces": "^5.0.0"
+  }
+}

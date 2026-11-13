@@ -1,0 +1,76 @@
+:root {
+  color-scheme: dark;
+  --bg: #12140f;
+  --panel: #1d1f1a;
+  --border: #3a3d31;
+  --fg: #e8eadf;
+  --muted: #8b8f80;
+  --accent: #dff25a;
+  --green: #4ade80;
+  --yellow: #f5c14b;
+  --red: #ff5a5a;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+main { max-width: 720px; width: 100%; }
+h1 { margin: 0; font-size: 26px; }
+.sub { color: var(--muted); margin: 6px 0 20px; }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.head { display: flex; justify-content: space-between; align-items: baseline; }
+.head label { font-weight: 600; }
+.engine { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+textarea {
+  width: 100%;
+  background: #14160f;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+  resize: vertical;
+}
+button {
+  align-self: flex-start;
+  padding: 8px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #16170f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: default; }
+.result { border-top: 1px solid var(--border); padding-top: 10px; }
+.badge { display: inline-block; font-family: var(--mono); font-size: 12px; margin-bottom: 8px; }
+.badge.tee { color: var(--green); }
+.badge.gateway { color: var(--yellow); }
+.badge.fallback { color: var(--red); }
+.receipt { display: inline-block; margin-left: 10px; color: var(--accent); font-size: 12px; }
+.result pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+.foot { color: var(--muted); font-size: 13px; margin-top: 16px; }
