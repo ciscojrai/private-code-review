@@ -2,7 +2,7 @@
 
 **Paste a private diff. Get a code review from a model that can't retain it — with a Verification Center receipt proving which model ran.**
 
-The review runs on **NEAR AI Cloud** (`z-ai/glm-5.3-flash` in a Trusted Execution Environment) with end-to-end encryption on and the response signature checked via `verifyResponse()` before the answer is shown. This is Illia Polosukhin's own suggested idea — "code review that is fully private."
+The review runs on **NEAR AI Cloud** (`z-ai/glm-5.3-flash` in a Trusted Execution Environment) with end-to-end encryption on and the response signature checked via `verifyResponse()` before the answer is shown. This is Illia Polosukhin's own suggested idea — ["code review that is fully private"](https://x.com/ilblackdragon/status/2106269343881519444) (2026-10-03). The server keeps nothing — no database, no logs, no retention of the pasted diff.
 
 > Built for [NEAR HACKATHON: Build Beyond Boundaries](https://nearhackathon.com). Track: **Privacy & Private AI**.
 
